@@ -2,6 +2,7 @@ package com.example.qwest_1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.qwest_1.data.CityBase
 import com.example.qwest_1.databinding.ActivityMainBinding
 
@@ -18,3 +19,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 fun ClickButton(){}
+
+fun FragmentHomeOpen(){}
+
+fun FragmentSettingOpen(){}
