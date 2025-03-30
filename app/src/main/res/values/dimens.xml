@@ -2,5 +2,5 @@
 <resources>
     <dimen name="stat">25dp</dimen>
     <dimen name="textClassic">24sp</dimen>
-    <dimen name="fragmentSize">40dp</dimen>
+    <dimen name="fragmentSize">20dp</dimen>
 </resources>

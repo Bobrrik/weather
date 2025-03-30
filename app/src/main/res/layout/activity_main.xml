@@ -8,15 +8,15 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/fragment_setting"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/fragmentSize" />
-
-    <FrameLayout
         android:id="@+id/fragment_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fragment_setting"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="@dimen/fragmentSize" />-->
 
     <ImageButton
         android:id="@+id/setting"
