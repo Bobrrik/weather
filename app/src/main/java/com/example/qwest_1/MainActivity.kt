@@ -2,6 +2,7 @@ package com.example.qwest_1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.qwest_1.data.CityBase
 import com.example.qwest_1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,5 +12,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val user = CityBase("Городишко","большой")
     }
 }
+
+fun ClickButton(){}
