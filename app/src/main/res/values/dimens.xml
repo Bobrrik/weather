@@ -3,4 +3,5 @@
     <dimen name="stat">25dp</dimen>
     <dimen name="textClassic">24sp</dimen>
     <dimen name="fragmentSize">20dp</dimen>
+    <dimen name="NameText">48sp</dimen>
 </resources>

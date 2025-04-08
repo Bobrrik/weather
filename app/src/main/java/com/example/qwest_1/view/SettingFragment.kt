@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.qwest_1.databinding.FragmentSettingBinding
+import com.example.qwest_1.domain.City
+import com.example.qwest_1.domain.DataModel
 
 
 class SettingFragment : Fragment() {
     lateinit var binding: FragmentSettingBinding
+    private val dataModel: DataModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,5 +28,18 @@ class SettingFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        //   val listdfdf = DataBase.citiesDataBase
+        val list = City("sdfasads", 34223)
+
+        onClick()
+    }
+
+    fun onClick() {
+        binding.butApply.setOnClickListener {
+            dataModel.message.value = "Ооооо я что то  сделал"
+        }
+    }
 }

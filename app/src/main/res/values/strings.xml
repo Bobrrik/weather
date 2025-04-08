@@ -2,4 +2,19 @@
     <string name="app_name">Qwest_1</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="season">
+        <item>Лето</item>
+        <item>Весна</item>
+        <item>Зима</item>
+        <item>Осень</item>
+    </string-array>
+
+    <string-array name="City">
+        <item>Москва</item>
+        <item>Алексеевка</item>
+        <item>Тольяти</item>
+        <item>Новгород</item>
+        <item>Воронеж</item>
+    </string-array>
 </resources>
