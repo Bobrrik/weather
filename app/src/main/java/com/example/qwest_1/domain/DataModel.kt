@@ -4,7 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DataModel : ViewModel() {
-    val message: MutableLiveData<String> by lazy {
+    val city: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+    val season: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
     }
 }

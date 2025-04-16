@@ -1,6 +1,7 @@
 package com.example.qwest_1
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -14,22 +15,35 @@ import com.example.qwest_1.view.SettingFragment
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private val dataModel: DataModel by viewModels()
+    val cityName = " "
+    var citySeason = " "
+    private var backPressed = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(binding.root)
 
-        arrangement()
-        ClickButton()
 
-        dataModel.message.observe(this, { name -> binding.textText.text = name })
+
+
+        ClickButton()
+        start()
     }
 
-    fun arrangement() {
+    fun start() {
 
-        val city = City("Апчихба", 21233)
-        val season = "Весна"
+        dataModel.city.observe(this, { name -> binding.textText.text = name })
+        dataModel.season.observe(this, { _season -> citySeason = _season })
+
+        arrangement(City(cityName, 21233), citySeason)
+
+    }
+
+    fun arrangement(city: City, season: String) {
+
+//        val city = City("Апчихба", 21233)
+//        val season = "Весна"
 
         val user =
             Weather(
@@ -55,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         binding.setting.setOnClickListener {
             FragmentSettingOpen()
         }
+
     }
 
     fun FragmentSettingOpen() {
@@ -65,6 +80,21 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount == 0) {
+            if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+                super.onBackPressed()
+                finish()
+            } else {
+                Toast.makeText(this, "Вы точно хотите выйти?", Toast.LENGTH_SHORT).show()
+                backPressed = System.currentTimeMillis()
+            }
+        } else super.onBackPressed()
+    }
+
+    companion object {
+        const val TIME_INTERVAL = 2000
+    }
 }
 
 

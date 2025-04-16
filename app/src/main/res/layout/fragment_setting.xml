@@ -11,10 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/fragmentSize"
-        android:minHeight="300dp"
         android:background="@color/blue"
+        android:minHeight="300dp"
         tools:context=".view.SettingFragment">
 
+
+        <ImageButton
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_expand_circle_down_24" />
 
         <TextView
             android:id="@+id/NameWindow"
@@ -33,10 +42,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/stat"
             android:entries="@array/City"
+            app:layout_constraintBaseline_toTopOf="@dimen/NameText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NameWindow"
-            app:layout_constraintBaseline_toTopOf="@dimen/NameText" />
+            app:layout_constraintTop_toBottomOf="@+id/NameWindow" />
 
         <Spinner
             android:id="@+id/spinnerSeason"
@@ -66,5 +75,30 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/cityNewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="@dimen/NameText"
+            app:layout_constraintBottom_toTopOf="@+id/butCityPlus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/butApply" />
+
+        <TextView
+            android:id="@+id/cityNewPop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/stat"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="@dimen/NameText"
+            app:layout_constraintEnd_toEndOf="@+id/cityNewName"
+            app:layout_constraintStart_toStartOf="@+id/cityNewName"
+            app:layout_constraintTop_toBottomOf="@+id/cityNewName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
