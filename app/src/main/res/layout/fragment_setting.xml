@@ -76,29 +76,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/cityNewName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="@dimen/NameText"
-            app:layout_constraintBottom_toTopOf="@+id/butCityPlus"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/butApply" />
+<!--        <EditText-->
+<!--            android:id="@+id/cityNewName"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="наименование"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/NameText"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/butCityPlus"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/butApply" />-->
 
-        <TextView
-            android:id="@+id/cityNewPop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/stat"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="@dimen/NameText"
-            app:layout_constraintEnd_toEndOf="@+id/cityNewName"
-            app:layout_constraintStart_toStartOf="@+id/cityNewName"
-            app:layout_constraintTop_toBottomOf="@+id/cityNewName" />
+<!--        <EditText-->
+<!--            android:id="@+id/cityNewPop"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/stat"-->
+<!--            android:text="население"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="numberSigned"-->
+<!--            android:textSize="@dimen/NameText"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/cityNewName"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/cityNewName"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/cityNewName" />-->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
