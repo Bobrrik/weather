@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
+import com.example.qwest_1.data.MainRepository
 import com.example.qwest_1.databinding.ActivityMainBinding
 import com.example.qwest_1.domain.City
 import com.example.qwest_1.domain.DataModel
@@ -15,28 +16,29 @@ import com.example.qwest_1.view.SettingFragment
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private val dataModel: DataModel by viewModels()
-    val cityName = " "
-    var citySeason = " "
+    val cityName = "Москва"
+    var citySeason = "Лето"
     private var backPressed = 0L
+    lateinit var base: MutableList<City>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(binding.root)
 
+        base = MainRepository().citiesDataBase
 
 
-
-        ClickButton()
-        start()
+        ClickButton()  // подключение кнопок
+        start()         // передача значений из фрагмента
     }
 
     fun start() {
 
-        dataModel.city.observe(this, { name -> binding.textText.text = name })
+     //   dataModel.city.observe(this, { name -> binding.textText.text = name })
         dataModel.season.observe(this, { _season -> citySeason = _season })
 
-        arrangement(City(cityName, 21233), citySeason)
+        arrangement(base[base.indexOfFirst { it.name == cityName }], citySeason)
 
     }
 
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 //        val city = City("Апчихба", 21233)
 //        val season = "Весна"
 
-        val user =
+        val user =      // привязка города к погоде и вывод на View
             Weather(
                 city.name,
                 city.size(),
@@ -69,7 +71,6 @@ class MainActivity : AppCompatActivity() {
         binding.setting.setOnClickListener {
             FragmentSettingOpen()
         }
-
     }
 
     fun FragmentSettingOpen() {
