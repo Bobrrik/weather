@@ -106,7 +106,6 @@ data class City(
     }
 }
 
-
 private fun random_temp(): Int {
     val temp = Random.nextInt(-30, 30)
     return temp
