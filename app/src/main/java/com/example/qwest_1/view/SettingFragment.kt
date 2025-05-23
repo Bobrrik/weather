@@ -9,15 +9,16 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.qwest_1.MainActivity
-import com.example.qwest_1.data.MainRepository
 import com.example.qwest_1.databinding.FragmentSettingBinding
-import com.example.qwest_1.domain.City
 import com.example.qwest_1.domain.DataModel
+import com.example.qwest_1.view_model.SettingFragmentViewModel
 
 
 class SettingFragment : Fragment() {
     lateinit var binding: FragmentSettingBinding
+    private val viewModel: SettingFragmentViewModel by activityViewModels()
     private val dataModel: DataModel by activityViewModels()
+    var spinnerList = mutableListOf<String>() // лист для адаптера
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +37,8 @@ class SettingFragment : Fragment() {
 
     fun adapter() {
 
-        val spinnerList = mutableListOf<String>() // лист для адаптера
-
-        for (i in 0..MainRepository().citiesDataBase.size - 1) {        // заполнение листа для адаптера
-            spinnerList.add(MainRepository().citiesDataBase[i].name)
+        viewModel.cityNameList.observe(viewLifecycleOwner) {
+            spinnerList = it
         }
 
         val spinnerArrayAdapter: ArrayAdapter<String> =     //  адаптер для spinner
@@ -49,14 +48,20 @@ class SettingFragment : Fragment() {
     }
 
     fun onClick() {
+        binding.spinnerCity.setOnClickListener {
+           viewModel.listFill()
+        }
+
         binding.butApply.setOnClickListener {       // применить
-            dataModel.city.value = binding.spinnerCity.selectedItem.toString()
-            dataModel.season.value = binding.spinnerSeason.selectedItem.toString()
+            this.dataModel.city.value = binding.spinnerCity.selectedItem.toString()
+            this.dataModel.season.value = binding.spinnerSeason.selectedItem.toString()
             (activity as MainActivity).start()
             activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
         }
         binding.exit.setOnClickListener {       // выйти
             activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+        }
+        binding.butCityPlus.setOnClickListener {
         }
     }
 }

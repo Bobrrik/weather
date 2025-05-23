@@ -16,7 +16,7 @@ import com.example.qwest_1.view.SettingFragment
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private val dataModel: DataModel by viewModels()
-    val cityName = "Москва"
+    var cityName = "Москва"
     var citySeason = "Лето"
     private var backPressed = 0L
     lateinit var base: MutableList<City>
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(binding.root)
 
-        base = MainRepository().citiesDataBase
 
 
         ClickButton()  // подключение кнопок
@@ -34,8 +33,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun start() {
+        base = MainRepository().citiesDataBase
 
-     //   dataModel.city.observe(this, { name -> binding.textText.text = name })
+        dataModel.city.observe(this, { _name -> cityName = _name })
         dataModel.season.observe(this, { _season -> citySeason = _season })
 
         arrangement(base[base.indexOfFirst { it.name == cityName }], citySeason)

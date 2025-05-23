@@ -18,16 +18,26 @@
         android:layout_height="match_parent"
         android:background="@color/blueWhite">
 
-<!--        <TextView-->
-<!--            android:id="@+id/textText"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="dfssf;dsf"-->
-<!--            android:textSize="@dimen/NameText"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/cityName"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--                <TextView-->
+<!--                    android:id="@+id/textText"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="dfssf;dsf"-->
+<!--                    android:textSize="@dimen/NameText"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/cityName"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+        <TextView
+            android:id="@+id/city_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Город"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textClassic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/status" />
 
         <TextView
             android:id="@+id/status"
@@ -93,12 +103,6 @@
                 android:text='@{user.temp+""}'
                 android:textColor="@color/black"
                 android:textSize="100dp" />
-
-            <FrameLayout
-                android:id="@+id/fragmentSetting"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="2dp" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -135,6 +139,7 @@
             app:layout_constraintStart_toStartOf="@+id/m2_name"
             app:layout_constraintTop_toBottomOf="@+id/m2_name" />
 
+
         <TextView
             android:id="@+id/m3_temp"
             android:layout_width="wrap_content"
@@ -155,5 +160,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/baseline_settings" />
 
+        <FrameLayout
+            android:id="@+id/fragmentSetting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="2dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
